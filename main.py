@@ -107,8 +107,8 @@ lst_4 = [3] * 6
 print(lst_4)
 # n = int(input())
 # lst_5 = [int(input()) for i in range(n)]
-print(len(lst_5))
-print(lst_5[::1])
+# print(len(lst_5))
+# print(lst_5[::1])
 
 from random import randrange
 lst_6 = [randrange(1, 100) for i in range(12)]
@@ -197,4 +197,125 @@ I.....I...
 1 2 3 0 0 0 0 0 0
 Выход:
 21021
+'''
+
+def func():
+    pass
+    # function body
+
+# lambda arg1, arg2: function body
+power = lambda x: x ** 2
+# arr.map() arr.filter() arr.reduce() - в питоне это лямбда
+lst = [1, 12, 56, 34, 128, 37]
+new_lst = list(filter(lambda item: item % 2 == 0, lst))
+new_lst_2 = list(map(lambda item: item % 2, lst))
+
+from functools import reduce
+new_lst_3 = reduce((lambda acc, item: acc + item), lst)
+
+# itertools functools
+
+same_parity = lambda x, y: 'same' if (x + y) % 2 == 0 else 'diff'
+print(same_parity(5, 7))
+
+x = lambda x: x.sort()[-1]
+y = lambda x, f: sum(x) + f(x)
+
+new_lst_4 = [lambda i = i: i * 10  for i in range(1, 11)]
+
+hello = lambda: 'text'
+print(hello())
+
+# напишите функцию, которая принимает на вход координаты двух точек и выводит длину отрезка
+# между этими точками
+
+# мн-во хранит уникальные значения
+set_1 = [1, 2, 3, 4, 5, 5, 5, 5]
+set_1 = set(set_1)
+set_1.discard(7)
+# set_1.remove(7)
+# set_1.pop(7) вернет значение
+print(set_1)
+print(len(set('qwertyyyyy')))
+print('t' not in set('qwertyyyyy'))
+
+set_2 = {1, 2, 3, 4, 5}
+set_3 = {3, 4, 5, 6, 7}
+set_4 = {2, 3, 5}
+print(set_2 | set_3) # a.union(b)
+# set_2 |= set_3
+# print(set_2)
+print(set_2 & set_3)
+print(set_2 - set_3)
+print(set_2 ^ set_3)
+print(set_4 <= set_2)
+print(set_4 <= set_3)
+
+# напишите лямбда функцию, которая принимает на вход строку и возвращает количество
+# уникальных в ней чисел
+count_unique = lambda string: len(set(string.split(' ')))
+
+# напишите функцию, которая принимает на вход строку с числами и для каждого числа определяет
+# встречалось ли оно ранее 
+# 1 2 3 2 3 4
+# N N N Y Y N
+
+# check_in_set = lambda st, x: 'Y' if x in st else 'N' 
+
+# y_or_n = lambda string, f, st={}: ' '.join([f(st, i) for i in string.split(' ')])
+
+# словари
+dct = dict()
+print(dct)
+dct['key'] = 'value'
+print(dct)
+
+dct_2 = {'key': 'value'}
+dct_3 = dict(key = 'value', key_2 = 'value2')
+print(dct_3)
+# dct_4 = dict([('k1', 'k2'), ('v1', 'v2')])
+dct_4 = dict(zip(['k1', 'k2', 'k3'], ['v1', 'v2', 'v3']))
+print(dct_4)
+# print(dct_4['k4'])
+print(dct_4.get('k4', 'def'))
+# del dct_4['k4']
+v_1 = dct_4.pop('k4', 'durak')
+print(v_1)
+print(dct_4)
+# try:
+#     x = 14
+# except:
+#     print('durak')
+for key in dct_4:
+    print(key, dct_4[key])
+
+print(dct_4.keys())
+print(dct_4.values())
+print(dct_4.items())
+
+# for key, value in dct_4.items():
+
+# print([1, 2] == [1, 2])
+
+'''
+Вам дан словарь, состоящий из пар слов. Каждое слово является синонимом к парному ему слову. 
+Все слова в словаре различны.
+Для слова из словаря, записанного в последней строке, определите его синоним.
+вход:
+3
+Hello Hi
+Bye Goodbye
+List Array
+Goodbye
+
+выход
+Bye
+
+Дан текст: в первой строке задано число строк, далее идут сами строки. 
+Выведите слово, которое в этом тексте встречается чаще всего. 
+Если таких слов несколько, выведите то, которое меньше в лексикографическом порядке.
+вход:
+1
+apple orange banana banana orange
+выход: banana
 '''
