@@ -308,9 +308,16 @@ Bye Goodbye
 List Array
 Goodbye
 
-выход
+выход:
 Bye
+'''
+def find():
+    dictionary = {key: value for key, value in [input().split() for _ in range(int(input()))]}
+    dictionary.update({value: key for key, value in dictionary.items()})
+    return dictionary[input()]
 
+# print(find())
+'''
 Дан текст: в первой строке задано число строк, далее идут сами строки. 
 Выведите слово, которое в этом тексте встречается чаще всего. 
 Если таких слов несколько, выведите то, которое меньше в лексикографическом порядке.
@@ -318,4 +325,65 @@ Bye
 1
 apple orange banana banana orange
 выход: banana
+'''
+def count_of_words():
+    count = int(input())
+    dictionary = [i.lower() for i in input().split() for _ in range(count)]
+    print(dictionary)
+
+count_of_words()
+
+'''
+r - read
+w - write
+x - execute
+
+на вход указывается количество файлов N
+в N строках указывается имя файла + права доступа к нему
+
+затем указывается M - кол-во запросов на доступ к файлам
+в M строках указывается имя файла + планируемая операция
+
+вход:
+3
+main.py rw
+maxim.js wx
+masha.py rwx
+3
+read main.py
+read maxim.js
+read write py.py
+
+выход:
+ok
+access denied
+file is not exist
+'''
+
+# all()
+# any()
+
+'''
+функция принимает на вход нечетное число N
+реализуйте вывод снежинки размером NxN по образцу
+n = 5
+* . * . *
+. * * * .
+* * * * *
+. * * * .
+* . * . *
+
+n = 7
+* . . * . . *
+. * . * . * .
+. . * * * . .
+* * * * * * *
+. . * * * . .
+. * . * . * .
+* . . * . . *
+
+n = 3
+* . *
+. * .
+* . *
 '''
